@@ -1,0 +1,59 @@
+## Build Folders
+bin/
+obj/
+
+## User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Rider
+.idea/
+
+## Visual Studio Code
+.vscode/
+
+## ASP.NET Core specific
+appsettings*.json  # optionally ignore local settings, or keep them if committed
+appsettings.Development.json
+secrets.json
+
+## NuGet Packages
+*.nupkg
+packages/
+.nuget/
+
+## Logs
+*.log
+*.log.*
+
+## Publish output
+publish/
+wwwroot/
+
+## Backup & temp files
+*.bak
+*.tmp
+*.temp
+~$*
+
+## Resharper
+_ReSharper*/
+*.DotSettings.user
+
+## JetBrains Rider
+.idea/
+*.sln.iml
+
+## OS Generated Files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+## DotCover
+*.dotCover
+
+## Others
+*.vs/
