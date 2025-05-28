@@ -38,7 +38,7 @@ Send a GET request to the /Library endpoint with a searchTerm query parameter.
 
 Example Request
 ```http
-GET /Library?searchTerm=tolkien
+GET /Library?searchTerm=dune
 ```
 
 Example Response (200 OK)
