@@ -4,28 +4,17 @@ using Library.Domain.Interfaces;
 
 namespace Library.Application.Services;
 
-public class BookSearchService : IBookSearchService
+public class LibrarySearchService(ILibraryRepository libraryRepository, IScoreStrategy scoreStrategy)
+	: ILibrarySearchService
 {
-	private readonly IBookRepository bookRepository;
-	private readonly IScoreStrategy scoreStrategy;
-
-	public BookSearchService(IBookRepository bookRepository, IScoreStrategy scoreStrategy)
-	{
-		this.bookRepository = bookRepository;
-		this.scoreStrategy = scoreStrategy;
-	}
-
 	public IList<ILibraryBook> SearchBooks(string? searchTerm, CancellationToken cancellationToken = default)
 	{
-		var books = bookRepository.GetAllBooks();
+		var books = libraryRepository.GetAllBooks();
 
 		if (string.IsNullOrWhiteSpace(searchTerm))
 		{
 			return books;
 		}
-
-		string lowerTerm = searchTerm.ToLowerInvariant();
-
 		var results = books
 			.AsParallel()
 			.WithCancellation(cancellationToken)

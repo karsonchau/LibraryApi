@@ -12,9 +12,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<IBookSearchService, BookSearchService>();
+builder.Services.AddScoped<ILibrarySearchService, LibrarySearchService>();
 builder.Services.AddScoped<IScoreStrategy, BasicScoringStrategy>();
-builder.Services.AddSingleton<IBookRepository, BookRepository>();
+builder.Services.AddSingleton<ILibraryRepository, LibraryRepository>();
 
 var app = builder.Build();
 

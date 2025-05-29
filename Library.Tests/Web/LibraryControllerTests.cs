@@ -1,21 +1,22 @@
 ﻿using Library.Application.Interfaces;
-using Library.Controllers;
+using Library.Web.Controllers;
 using Library.Domain.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Moq;
-using System;
 
 namespace Library.Tests.Web;
 
 public class LibraryControllerTests
 {
-	private readonly Mock<IBookSearchService> _serviceMock = new();
+	private readonly Mock<ILibrarySearchService> _serviceMock = new();
+	private readonly Mock<ILogger<LibraryController>> _loggerMock = new();
 	private readonly LibraryController _controller;
 
 	public LibraryControllerTests()
 	{
-		_controller = new LibraryController(_serviceMock.Object);
+		_controller = new LibraryController(_serviceMock.Object, _loggerMock.Object);
 	}
 
 	[Fact]

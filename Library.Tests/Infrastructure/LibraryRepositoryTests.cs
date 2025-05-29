@@ -1,14 +1,13 @@
 ﻿using Library.Infrastructure.Repository;
-using System;
 
 namespace Library.Tests.Infrastructure;
 
-public class BookRepositoryTests
+public class LibraryRepositoryTests
 {
 	[Fact]
 	public void GetAllBooks_ReturnsNonNullList()
 	{
-		var repo = new BookRepository();
+		var repo = new LibraryRepository();
 
 		var books = repo.GetAllBooks();
 

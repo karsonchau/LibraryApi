@@ -1,20 +1,19 @@
-﻿using System;
-using Library.Application.Interfaces;
+﻿using Library.Application.Interfaces;
 using Library.Application.Services;
 using Library.Domain.Interfaces;
 using Moq;
 
 namespace Library.Tests.Application;
 
-public class BookSearchServiceTests
+public class LibrarySearchServiceTests
 {
-    private readonly Mock<IBookRepository> _bookRepoMock = new();
+    private readonly Mock<ILibraryRepository> _bookRepoMock = new();
     private readonly Mock<IScoreStrategy> _scoreStrategyMock = new();
 
-    private BookSearchService CreateServiceWithBooks(params ILibraryBook[] books)
+    private LibrarySearchService CreateServiceWithBooks(params ILibraryBook[] books)
     {
         _bookRepoMock.Setup(repo => repo.GetAllBooks()).Returns(books.ToList());
-        return new BookSearchService(_bookRepoMock.Object, _scoreStrategyMock.Object);
+        return new LibrarySearchService(_bookRepoMock.Object, _scoreStrategyMock.Object);
     }
 
     [Fact]
